@@ -39,7 +39,7 @@ return [
     'en'             => 'اللغة الانجليزية',
     'ar'             => 'اللغة العربية',
     'added'          => 'تم الاضافة بنجاح',
-    'coun_not_found' => 'الدولة غير موجوده',
+    'coun_not_found' => 'البيانات غير موجوده',
     'detelted_sucess' => 'تم حذف البيانات بنجاح',
     'try_again'       => 'توجد مشكلة ما يمكن المحاولة في وقت لاحق',
 
@@ -66,6 +66,8 @@ return [
         'age_required'         => 'العمر مطلوب',
         'image_required'         => 'الصوره مطلوبة',
         'day_required'         => 'اليوم مطلوب',
+        'slug_required'        => 'الاسم بالرابط مطلوب',
+        'parent_id_required'   => 'من فضلك اختر القسم الرئيسي',
     ],
 
 
@@ -143,5 +145,17 @@ return [
     'password' => 'رقم المرور',
     'test' => 'اختبار',
     'copy' => 'حقوق الملكية الفكرية محفوظة',
-    
+    'categories'       => 'الاقسام',
+    'show_categories'  => 'عرض الاقسام',
+    'create_category'  => 'اضافة قسم',
+    'not_active' => 'غير مفعل',
+    'active' => 'مفعل',
+    'select_category' => 'اختر القسم',
+    'select_category_type' => 'اختر نوع القسم',
+    'slug' => 'الاسم بالرابط',
+    'category_info' => 'بيانات القسم',
+    'reseat' => 'تراجع',
+    'create' => 'حفظ',
+    'main_category' => 'قسم رئيسي',
+    'sub_category' => 'قسم فرعي',
 ];

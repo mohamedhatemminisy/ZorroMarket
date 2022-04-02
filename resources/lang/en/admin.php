@@ -39,7 +39,7 @@ return [
     'en'             => 'English language',
     'delete'         => 'Delete',
     'added'          => 'Data added successfully',
-    'coun_not_found' => 'Country not found',
+    'coun_not_found' => 'Data not found',
     'detelted_sucess' => 'Data deleted successfully',
     'try_again'       => 'There is a problem you can try in other time',
 
@@ -67,6 +67,8 @@ return [
         'age_required'         => 'age required',
         'image_required'         => 'image required',
         'day_required'         => 'Day required',
+        'slug_required'        => 'slug required',
+        'parent_id_required'   => 'Main category required',
         
     ],
 
@@ -143,7 +145,18 @@ return [
     'FloorNumber'   => 'Floor Number',
     'password' => 'password',
     'test' => 'test',
-    'copy'  => 'All rights reserved.'
-    
-
+    'copy'  => 'All rights reserved.',
+    'categories'       => 'Categories',
+    'show_categories'  => 'Show categories',
+    'create_category'  => 'Create category',
+    'not_active' => 'Not active',
+    'active' => 'Active',
+    'select_category' => 'Select category',
+    'select_category_type' => 'Select category type',
+    'slug' => 'slug',
+    'category_info' => 'Category info',
+    'reseat' => 'reseat',
+    'create' => 'create',
+    'main_category' => 'Main category',
+    'sub_category' => 'Sub category',
 ];
