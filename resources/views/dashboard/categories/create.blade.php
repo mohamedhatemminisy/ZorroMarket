@@ -53,8 +53,6 @@
                                 <div class="card-body">
                                     <form class="form" action="{{route('categories.store')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <h4 class="form-section"><i class="ft-home"></i> {{trans('admin.category_info')}} </h4>
-
                                         <div class="card-body">
                                             <div class="tab-content">
 
@@ -84,16 +82,16 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 @error('parent_id') d-block @else d-none  @enderror" id="main_category">
-                                                        <div class="form-group " >
+                                                        <div class="form-group ">
                                                             <label for="parent_id"> {{trans('admin.select_category')}} </label>
                                                             <select name="parent_id" class="form-control" id="parent_id">
-                                                            <option value="" disabled selected>{{trans('admin.select_category')}}</option>
-                                                            @if($categories && $categories -> count() > 0)
-                                                                    @foreach($categories as $category)
-                                                                    <option value="{{$category -> id }}">{{$category -> name}}</option>
-                                                                    @endforeach
-                                                                    @endif
-                                                             </select>
+                                                                <option value="" disabled selected>{{trans('admin.select_category')}}</option>
+                                                                @if($categories && $categories -> count() > 0)
+                                                                @foreach($categories as $category)
+                                                                <option value="{{$category -> id }}">{{$category -> name}}</option>
+                                                                @endforeach
+                                                                @endif
+                                                            </select>
                                                             @error('parent_id')
                                                             <span class="text-danger"> {{$message}}</span>
                                                             @enderror

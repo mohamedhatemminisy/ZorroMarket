@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> الاقسام ألفرعية </h3>
+                <h3 class="content-header-title"> {{trans('admin.categories')}} </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> {{trans('admin.home')}} </a>
                             </li>
-                            <li class="breadcrumb-item active"> الاقسام ألفرعية
+                            <li class="breadcrumb-item"> {{trans('admin.categories')}}
                             </li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">جميع الاقسام ألفرعية </h4>
+                                <h4 class="card-title"> {{trans('admin.categories')}} </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -36,20 +36,18 @@
                                     </ul>
                                 </div>
                             </div>
-
                             @include('dashboard.includes.alerts.success')
                             @include('dashboard.includes.alerts.errors')
-
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
                                     <table class="table display nowrap table-striped table-bordered ">
                                         <thead class="">
                                             <tr>
-                                                <th>الاسم </th>
-                                                <th>القسم الرئيسي </th>
-                                                <th> الاسم بالرابط </th>
-                                                <th>الحالة</th>
-                                                <th>الإجراءات</th>
+                                                <th>الاسم {{trans('admin.name')}} </th>
+                                                <th> {{trans('admin.main_category')}} </th>
+                                                <th> {{trans('admin.slug')}} </th>
+                                                <th> {{trans('admin.status')}}</th>
+                                                <th> {{trans('admin.action')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,14 +63,10 @@
                                                 <td>{{$value -> getActive()}}</td>
                                                 <td>
                                                     @include('dashboard.components.table-control', ['permission' => 'categories', 'name'=>'categories', 'value'=>$value])
-
-
                                                 </td>
                                             </tr>
                                             @endforeach
                                             @endisset
-
-
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
