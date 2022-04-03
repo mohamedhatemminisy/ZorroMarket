@@ -41,6 +41,8 @@ Route::group([
 
         Route::resource('categories', 'App\Http\Controllers\Dashboard\CategoryController');
 
+        Route::resource('brands', 'App\Http\Controllers\Dashboard\BrandController');
+
         Route::resource('tests', 'App\Http\Controllers\Dashboard\TestController');
         Route::get('/tests/delete/{id}', 'App\Http\Controllers\Dashboard\TestController@delete')->name('tests.delete');
     });

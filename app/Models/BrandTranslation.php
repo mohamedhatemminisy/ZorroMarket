@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BrandTranslation extends Model
 {
     use HasFactory;
+    protected $fillable = ['name'];
+    public $timestamps = false;
 }

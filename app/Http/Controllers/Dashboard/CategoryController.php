@@ -91,7 +91,7 @@ class CategoryController extends Controller
             $data['is_active'] = 1;
         $data['slug'] =  str_replace(' ', '-', $request->slug);
         $category->update($data);
-        return redirect()->route('categories.index')->with(['success' => 'تم ألتحديث بنجاح']);
+        return redirect()->route('categories.index')->with(['success' =>  trans('admin.updated')]);
     }
 
     /**
