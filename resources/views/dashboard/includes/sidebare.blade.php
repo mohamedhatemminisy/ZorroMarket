@@ -23,6 +23,18 @@
                 </ul>
             </li>
 
+            <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.brands')}}</span></a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="{{route('brands.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                            {{trans('admin.create_brand')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('brands.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                            {{trans('admin.show_brands')}}</a>
+
+                    </li>
+                </ul>
+            </li>
+
 
             <li class=" nav-item"><a href="{{route('contact')}}"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.contact')}}</span></a>
             </li>

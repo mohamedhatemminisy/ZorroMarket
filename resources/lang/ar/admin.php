@@ -158,4 +158,8 @@ return [
     'create' => 'حفظ',
     'main_category' => 'قسم رئيسي',
     'sub_category' => 'قسم فرعي',
+    'create_brand' => 'اضافة ماركة',
+    'show_brands' => 'عرض الماركات',
+    'brands' => 'الماركات',
+    'logo' => 'اللوجو',
 ];

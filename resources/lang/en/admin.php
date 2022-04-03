@@ -159,4 +159,8 @@ return [
     'create' => 'create',
     'main_category' => 'Main category',
     'sub_category' => 'Sub category',
+    'create_brand' => 'create brand',
+    'show_brands' => 'show brands',
+    'brands' => 'brands',
+    'logo' => 'Logo',
 ];
