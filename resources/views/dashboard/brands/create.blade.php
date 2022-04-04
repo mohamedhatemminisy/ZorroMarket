@@ -54,8 +54,6 @@
                                 <div class="card-body">
                                     <form class="form" action="{{route('brands.store')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
-
-
                                         <div class="card-body">
                                             <div class="tab-content">
                                                 @foreach (config('translatable.locales') as $key => $locale)

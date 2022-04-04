@@ -45,6 +45,7 @@ return [
 
 
     'error_message' =>[
+        'phone_required'        =>  'phone is required',
         'name_required'         =>  'Name is required',
         'duration_required'     =>  'Duration is required',
         'price_required'        =>  'Price is required',
@@ -163,4 +164,14 @@ return [
     'show_brands' => 'show brands',
     'brands' => 'brands',
     'logo' => 'Logo',
+    'role' => 'Role',
+    'create_user'  => 'create user',
+    'show_users'  => 'show users',
+    'create_role' => 'create role',
+    'show_roles' => 'show roles',
+    'roles' => 'roles',
+    'guard' => 'guard',
+    'create_permission' => 'create permission',
+    'show_permissions' => 'show permissions',
+    'permissions' => 'permissions',
 ];

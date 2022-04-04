@@ -18,17 +18,14 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
-    Route::group(['middleware' => 'auth:user', 'prefix' => 'admin'], function () {
+    Route::group(['middleware' => ['auth', 'permission'], 'prefix' => 'admin'], function () {
 
         Route::get('/', 'App\Http\Controllers\Dashboard\DashboardController@index')->name('admin.dashboard');
 
-        Route::get('/users', 'App\Http\Controllers\Dashboard\UserController@index')->name('users');
-        Route::get('/users/details/{id}', 'App\Http\Controllers\Dashboard\UserController@details')
-            ->name('user.details');
-        Route::get('/users/addresses/{id}', 'App\Http\Controllers\Dashboard\UserController@addresses')
-            ->name('user.addresses');
-        Route::get('/users/reservations/{id}', 'App\Http\Controllers\Dashboard\UserController@reservations')
-            ->name('user.reservations');
+        // Route::get('/users', 'App\Http\Controllers\Dashboard\UserController@index')->name('users');
+        // Route::get('/users/details/{id}', 'App\Http\Controllers\Dashboard\UserController@details')
+        //     ->name('user.details');
+
 
         Route::group(['prefix' => 'contact'], function () {
             Route::get('/', 'App\Http\Controllers\Dashboard\ContactController@index')
@@ -42,9 +39,10 @@ Route::group([
         Route::resource('categories', 'App\Http\Controllers\Dashboard\CategoryController');
 
         Route::resource('brands', 'App\Http\Controllers\Dashboard\BrandController');
+        Route::resource('users', 'App\Http\Controllers\Dashboard\UserController');
 
-        Route::resource('tests', 'App\Http\Controllers\Dashboard\TestController');
-        Route::get('/tests/delete/{id}', 'App\Http\Controllers\Dashboard\TestController@delete')->name('tests.delete');
+        Route::resource('roles', 'App\Http\Controllers\Dashboard\RolesController');
+        Route::resource('permissions', 'App\Http\Controllers\Dashboard\PermissionsController');
     });
 
 
