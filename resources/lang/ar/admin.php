@@ -43,7 +43,8 @@ return [
     'detelted_sucess' => 'تم حذف البيانات بنجاح',
     'try_again'       => 'توجد مشكلة ما يمكن المحاولة في وقت لاحق',
 
-    'error_message' =>[
+    'error_message' => [
+        'phone_required'        =>  'رقم الهاتف مطلوب',
         'name_required'         =>  'الاسم مطلوب',
         'name_required_ar'      =>  'الاسم مطلوب باللغة العربية',
         'name_required_en'      =>  'الاسم مطلوب باللغة الانجليزية',
@@ -82,7 +83,7 @@ return [
     'update'         => 'تحديث',
     'wrong_data'     => 'البيانات غير صحيحة',
     'upload_csv'     => 'تحميل ملف csv',
- 
+
     'test_count'   => 'عدد الاختبارات',
     'offers_count'   => 'عدد العروض',
     'reservations_count'   => 'عدد الحجوزات',
@@ -129,7 +130,7 @@ return [
     'offer' => 'عرض',
     'Filtrer' => 'فلتر',
 
-    
+
     'create_result' => 'اضافة النتيجة',
     'file' => 'الملف',
     'created_at' => 'تاريخ الاضافة',
@@ -162,4 +163,14 @@ return [
     'show_brands' => 'عرض الماركات',
     'brands' => 'الماركات',
     'logo' => 'اللوجو',
+    'role'  => 'الدور',
+    'create_user'  => 'اضافة مستخدم',
+    'show_users'  => 'عرض المستخدمين',
+    'create_role' => 'اضافة دور',
+    'show_roles' => 'عرض الادوار',
+    'roles' => 'الادوار',
+    'guard' => 'الصلاحية',
+    'create_permission' => 'اضافة صلاحية',
+    'show_permissions' => 'عرض الصلاحيات',
+    'permissions' => 'الصلاحيات',
 ];

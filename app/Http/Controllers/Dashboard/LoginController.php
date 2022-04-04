@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\AdminLoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -17,16 +18,15 @@ class LoginController extends Controller
     {
 
         //validation
-
         //check , store , update
 
         $remember_me = $request->has('remember_me') ? true : false;
 
-        if (auth()->guard('user')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
+        if (Auth::attempt(['email' =>  $request->input("email"), 'password' =>  $request->input("password")])) {
+
             return redirect()->route('admin.dashboard');
         }
         return redirect()->back()->with(['error' => trans('admin.wrong_data')]);
-
     }
 
     public function logout()
