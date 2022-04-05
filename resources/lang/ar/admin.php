@@ -44,6 +44,7 @@ return [
     'try_again'       => 'توجد مشكلة ما يمكن المحاولة في وقت لاحق',
 
     'error_message' => [
+        'slug_unique'           =>  'هذا الاسم موجود من قبل',
         'phone_required'        =>  'رقم الهاتف مطلوب',
         'name_required'         =>  'الاسم مطلوب',
         'name_required_ar'      =>  'الاسم مطلوب باللغة العربية',
@@ -173,4 +174,10 @@ return [
     'create_permission' => 'اضافة صلاحية',
     'show_permissions' => 'عرض الصلاحيات',
     'permissions' => 'الصلاحيات',
+    'create_banner' => 'اضافة بانر',
+    'show_banners' => 'عرض البانرز',
+    'banners' => 'البانرز',
+    'select_banner_type' => 'اختر نوع البانر',
+    'slider'  => 'اسليدر',
+    'banner'  => 'بانر',
 ];

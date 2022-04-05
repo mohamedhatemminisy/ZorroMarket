@@ -45,6 +45,7 @@ return [
 
 
     'error_message' =>[
+        'slug_unique'           =>  'slug must be unique',
         'phone_required'        =>  'phone is required',
         'name_required'         =>  'Name is required',
         'duration_required'     =>  'Duration is required',
@@ -174,4 +175,10 @@ return [
     'create_permission' => 'create permission',
     'show_permissions' => 'show permissions',
     'permissions' => 'permissions',
+    'create_banner' => 'create banner',
+    'show_banners' => 'show banners',
+    'banners' => 'banners',
+    'select_banner_type' => 'select banner type',
+    'slider'  => 'slider',
+    'banner'  => 'banner',
 ];
