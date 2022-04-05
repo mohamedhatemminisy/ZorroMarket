@@ -92,7 +92,23 @@
                             {{trans('admin.show_brands')}}</a>
                     </li>
                     @endcan
+                </ul>
+            </li>
+            @endcan
 
+            @canany(['banners.create', 'banners.index'])
+            <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.banners')}}</span></a>
+                <ul class="menu-content">
+                    @can('banners.index')
+                    <li><a class="menu-item" href="{{route('banners.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                            {{trans('admin.create_banner')}}</a>
+                    </li>
+                    @endcan
+                    @can('banners.index')
+                    <li><a class="menu-item" href="{{route('banners.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                            {{trans('admin.show_banners')}}</a>
+                    </li>
+                    @endcan
                 </ul>
             </li>
             @endcan

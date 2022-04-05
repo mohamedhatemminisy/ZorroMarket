@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\BrandRequest;
-use App\Models\Brand;
+use App\Http\Requests\Dashboard\BannerRequest;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
-        return view('dashboard.brands.index', compact('brands'));
+        $banners = Banner::orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
+        return view('dashboard.banners.index', compact('banners'));
     }
 
     /**
@@ -27,7 +27,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('dashboard.brands.create');
+        return view('dashboard.banners.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BrandRequest $request)
+    public function store(BannerRequest $request)
     {
         $data = $request->all();
         if (!$request->has('is_active'))
@@ -44,10 +44,10 @@ class BrandController extends Controller
         else
             $data['is_active'] = 1;
         if ($request->hasFile('image')) {
-            $data['logo'] = upload_image($request->file('image'), 'image');
+            $data['image'] = upload_image($request->file('image'), 'image');
         }
-        Brand::create($data);
-        return redirect()->route('brands.index')
+        Banner::create($data);
+        return redirect()->route('banners.index')
             ->with(['success' => trans('admin.added')]);
     }
 
@@ -59,8 +59,8 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $brand = Brand::find($id);
-        return view('dashboard.brands.show', compact('brand'));
+        $banner = Banner::find($id);
+        return view('dashboard.banners.show', compact('banner'));
     }
 
     /**
@@ -71,8 +71,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = Brand::orderBy('id', 'DESC')->find($id);
-        return view('dashboard.brands.edit', compact('brand'));
+        $banner = Banner::orderBy('id', 'DESC')->find($id);
+        return view('dashboard.banners.edit', compact('banner'));
     }
 
     /**
@@ -82,21 +82,21 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BrandRequest $request, $id)
+    public function update(BannerRequest $request, $id)
     {
-        $brand = Brand::find($id);
+        $banner = Banner::find($id);
         $data = $request->all();
         if ($request->hasFile('image')) {
-            $data['logo'] = upload_image($request->file('image'), 'image');
+            $data['image'] = upload_image($request->file('image'), 'image');
         } else {
-            $data['logo'] = $brand->logo;
+            $data['image'] = $banner->image;
         }
         if (!$request->has('is_active'))
             $data['is_active'] = 0;
         else
             $data['is_active'] = 1;
-        $brand->fill($data)->save();
-        return redirect()->route('brands.index')
+        $banner->fill($data)->save();
+        return redirect()->route('banners.index')
             ->with(['success' => trans('admin.updated')]);
     }
 
@@ -108,15 +108,15 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //get specific brands and its translations
+        //get specific banners and its translations
         try {
-            $brans = Brand::orderBy('id', 'DESC')->find($id);
-            if (!$brans)
-                return redirect()->route('brands.index')->with(['error' => trans('admin.coun_not_found')]);
-            $brans->delete();
-            return redirect()->route('brands.index')->with(['success' =>  trans('admin.detelted_sucess')]);
+            $banner = Banner::orderBy('id', 'DESC')->find($id);
+            if (!$banner)
+                return redirect()->route('banners.index')->with(['error' => trans('admin.coun_not_found')]);
+            $banner->delete();
+            return redirect()->route('banners.index')->with(['success' =>  trans('admin.detelted_sucess')]);
         } catch (\Exception $ex) {
-            return redirect()->route('brands.index')->with(['error' =>  trans('admin.try_again')]);
+            return redirect()->route('banners.index')->with(['error' =>  trans('admin.try_again')]);
         }
     }
 }

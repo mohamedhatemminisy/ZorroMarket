@@ -61,7 +61,7 @@
                                                 @foreach (config('translatable.locales') as $key => $locale)
 
                                                 <div class="tab-pane fade show @if($key == 0) active @endif" id="{{$locale}}" role="tabpanel">
-                                                    <div class="col form-group">
+                                                    <div class="mb-3">
                                                         <label>@lang('admin.name') (@lang('admin.'.$locale))<span class="text-danger">*</span></label>
                                                         <input type="text" name="{{ $locale.'[name]' }}" id="{{ $locale . '[name]' }}" value="{{old($locale.'.name',$category->translate($locale)->name )}}" placeholder="@lang('admin.name')" class="form-control @error(" $locale.name" ) is-invalid @enderror" value="{{ old($locale.'.name') }}">
                                                         @error("$locale.name" )
@@ -73,7 +73,7 @@
                                                 @if($category -> _parent)
                                                 <div class="row">
                                                     <div class="col-md-12" id="main_category">
-                                                        <div class="form-group ">
+                                                        <div class="mb-3">
                                                             <label for="parent_id"> {{trans('admin.select_category')}} </label>
                                                             <select name="parent_id" class="form-control" id="parent_id">
                                                                 <option value="" disabled selected>{{trans('admin.select_category')}}</option>
@@ -92,8 +92,8 @@
                                                 @endif
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
                                                             <label for="projectinput1">{{trans('admin.slug')}}
                                                             </label>
                                                             <input type="text" id="name" class="form-control" placeholder="  " value="{{old('slug',$category->slug )}}" name="slug">
@@ -102,8 +102,8 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group mt-1">
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
                                                             <input type="checkbox" value="1" name="is_active" id="switcheryColor4" class="switchery" data-color="success" checked />
                                                             <label for="switcheryColor4" class="card-title ml-1">{{trans('admin.status')}} </label>
                                                             @error("is_active")
