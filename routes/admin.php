@@ -41,6 +41,7 @@ Route::group([
         Route::resource('brands', 'App\Http\Controllers\Dashboard\BrandController');
         Route::resource('users', 'App\Http\Controllers\Dashboard\UserController');
         Route::resource('banners', 'App\Http\Controllers\Dashboard\BannerController');
+        Route::resource('products', 'App\Http\Controllers\Dashboard\ProductsController');
 
         Route::resource('roles', 'App\Http\Controllers\Dashboard\RolesController');
         Route::resource('permissions', 'App\Http\Controllers\Dashboard\PermissionsController');

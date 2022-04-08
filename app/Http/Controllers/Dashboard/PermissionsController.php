@@ -16,7 +16,7 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::all();
+        $permissions = Permission::paginate(PAGINATION_COUNT);
 
         return view('dashboard.permissions.index', [
             'permissions' => $permissions
