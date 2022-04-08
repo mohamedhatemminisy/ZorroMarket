@@ -38,7 +38,7 @@
                             </div>
                             @include('dashboard.includes.alerts.success')
                             @include('dashboard.includes.alerts.errors')
-                            
+
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
                                     <table class="table display nowrap table-striped table-bordered ">
@@ -71,7 +71,7 @@
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
-
+                                        {{ $users->links('vendor.pagination.custom') }}
                                     </div>
                                 </div>
                             </div>

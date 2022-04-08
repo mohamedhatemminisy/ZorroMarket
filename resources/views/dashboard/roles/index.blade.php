@@ -58,11 +58,8 @@
                                         @endforeach
                                     </table>
 
-                                    <div class="d-flex">
-                                        {!! $roles->links() !!}
-                                    </div>
                                     <div class="justify-content-center d-flex">
-
+                                        {{ $roles->links('vendor.pagination.custom') }}
                                     </div>
                                 </div>
                             </div>

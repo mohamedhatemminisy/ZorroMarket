@@ -66,7 +66,7 @@
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
-
+                                        {{ $banners->links('vendor.pagination.custom') }}
                                     </div>
                                 </div>
                             </div>

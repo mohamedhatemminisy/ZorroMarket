@@ -80,6 +80,7 @@
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
+                                        {{ $permissions->links('vendor.pagination.custom') }}
                                     </div>
                                 </div>
                             </div>
