@@ -217,5 +217,6 @@ return [
     'quantity' => 'quantity',
     'main_image' => 'main image',
     'video' => 'video',
+    'added_by' => 'Product owner',
     'images' => 'Product images ',
 ];

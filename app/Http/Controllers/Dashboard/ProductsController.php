@@ -32,7 +32,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id', 'desc')->paginate(PAGINATION_COUNT);
+        $user = auth()->user();
+        $role =  $user->getRoleNames()[0];
+        if ($role == 'admin') {
+            $products = Product::orderBy('id', 'desc')->paginate(PAGINATION_COUNT);
+        } elseif ($role == 'vendor') {
+            $products = Product::orderBy('id', 'desc')->where('added_by', auth()->user()->id)->paginate(PAGINATION_COUNT);
+        }
         return view('dashboard.products.index', compact('products'));
     }
 
@@ -136,12 +142,12 @@ class ProductsController extends Controller
             $data['is_active'] = 1;
         if ($request->hasFile('main_image')) {
             $data['main_image'] = upload_image($request->file('main_image'), 'main_image');
-        }else{
+        } else {
             $product->main_image;
         }
         if ($request->hasFile('video')) {
             $data['video'] = upload_image($request->file('video'), 'video');
-        }else{
+        } else {
             $product->video;
         }
         if ($request->added_by) {
@@ -150,7 +156,7 @@ class ProductsController extends Controller
             $data['added_by'] = auth()->user()->id;
         }
         $product->update($data);
-        ProductCategory::where('product_id',$product->id)->delete();
+        ProductCategory::where('product_id', $product->id)->delete();
         foreach ($request->categories as $category) {
             $product_cat = new ProductCategory();
             $product_cat->category_id = $category;
