@@ -34,6 +34,9 @@ class Product extends Model implements TranslatableContract
     public function brand(){
         return $this->belongsTo(Brand::class);
     }
+    public function user(){
+        return $this->belongsTo(User::class,'added_by');
+    }
  
     public function categories () {
         return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');

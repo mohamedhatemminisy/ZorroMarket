@@ -108,6 +108,11 @@
                                         <p class="alert alert-info" style="background-color:rgb(26,60,119)">{{ $product->brand->name  }}</p>
                                     </div>
                                     <div class="col form-group">
+                                        <label>@lang('admin.added_by') </label>
+                                        <p>
+                                    {{$product->user->getRoleNames()}} <a href="{{route('users.show',$product->user->id)}}"> {{ $product->user->name}}</a></p>
+                                    </div>
+                                    <div class="col form-group">
                                         <label>@lang('admin.status') </label>
                                         <p class="alert alert-info" style="background-color:rgb(26,60,119)">{{ $product->getActive()  }}</p>
                                     </div>
