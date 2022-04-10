@@ -276,6 +276,15 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label for="featured" class="card-title ml-1">{{trans('admin.featured')}} </label>
+                                                            <input type="checkbox" value="1" name="featured" id="featured" class="switchery" data-color="success" />
+                                                            @error("featured")
+                                                            <span class="text-danger">{{$message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

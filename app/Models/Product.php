@@ -11,7 +11,7 @@ class Product extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
     protected $fillable = [
-        'is_active', 'slug', 'sku', 'price', 'main_image', 'video', 'quantity',
+        'is_active','featured', 'slug', 'sku', 'price', 'main_image', 'video', 'quantity',
         'special_price', 'start_date', 'end_date', 'added_by', 'brand_id'
     ];
     protected $translatedAttributes = ['name', 'summary', 'description'];
@@ -24,11 +24,16 @@ class Product extends Model implements TranslatableContract
      */
     protected $casts = [
         'is_active' => 'boolean',
+        'featured' => 'boolean',
     ];
 
     public function getActive()
     {
         return  $this->is_active  == 0 ?  trans('admin.not_active')   : trans('admin.active');
+    }
+    public function featured()
+    {
+        return  $this->featured  == 0 ?  trans('admin.not_featured')   : trans('admin.featured');
     }
 
     public function brand(){

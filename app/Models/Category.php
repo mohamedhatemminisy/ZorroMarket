@@ -60,4 +60,7 @@ class Category extends Model implements TranslatableContract
     {
         return $query->where('is_active', 1);
     }
+    public function products () {
+        return $this->belongsToMany(Product::class, 'product_categories');
+    }
 }

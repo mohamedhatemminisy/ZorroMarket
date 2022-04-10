@@ -5,13 +5,15 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> {{trans('admin.users')}} </h3>
+                <h3 class="content-header-title">{{trans('admin.users')}} </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> {{trans('admin.home')}} </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('admin.home')}}</a>
                             </li>
-                            <li class="breadcrumb-item"> {{trans('admin.users')}}
+                            <li class="breadcrumb-item"><a href="{{route('users.index')}}">{{trans('admin.users')}}</a>
+                            </li>
+                            <li class="breadcrumb-item active">{{trans('admin.Address')}}
                             </li>
                         </ol>
                     </div>
@@ -36,8 +38,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            @include('dashboard.includes.alerts.success')
-                            @include('dashboard.includes.alerts.errors')
 
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
@@ -45,38 +45,27 @@
                                         <thead>
                                             <tr>
                                                 <th> {{trans('admin.name')}} </th>
-                                                <th> {{trans('admin.email')}} </th>
-                                                <th> {{trans('admin.phone')}}</th>
-                                                <th> {{trans('admin.role')}}</th>
-                                                <th> {{trans('admin.action')}}</th>
+                                                <th> {{trans('admin.phone')}} </th>
+                                                <th> {{trans('admin.city')}}</th>
+                                                <th> {{trans('admin.state')}}</th>
+                                                <th> {{trans('admin.address')}}</th>
+                                                <th> {{trans('admin.zipcode')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($users as $value)
+                                            @foreach($addresses as $value)
                                             <tr>
-                                                <td>{{ $value->name }}</td>
-                                                <td>{{ $value->email }}</td>
+                                                <td>{{ $value->first_name }}{{ $value->last_name }}</td>
                                                 <td>{{ $value->phone }}</td>
-                                                <td>
-                                                    @foreach($value->roles as $role)
-                                                    <span class="badge bg-primary">{{ $role->name }}</span>
-                                                    @endforeach
-                                                </td>
-                                                <td>
-                                                    @include('dashboard.components.table-control', ['permission' => 'users',
-                                                    'name'=>'users', 'value'=>$value])
-                                                    <a href="{{route('user.addresses',$value->id)}}" class="btn btn-sm btn-clean
-                                       btn-icon mr-2 " title="{{trans('admin.Address')}}"><i class="fas fa-location"></i></a>
-
-
-                                                </td>
+                                                <td>{{ $value->city }}</td>
+                                                <td>{{ $value->state }}</td>
+                                                <td>{{ $value->address }}</td>
+                                                <td>{{ $value->zipcode }}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <div class="justify-content-center d-flex">
-                                        {{ $users->links('vendor.pagination.custom') }}
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -86,5 +75,4 @@
         </div>
     </div>
 </div>
-
 @stop

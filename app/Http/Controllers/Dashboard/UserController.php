@@ -7,7 +7,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use App\Http\Requests\Dashboard\StoreUserRequest;
 use App\Http\Requests\Dashboard\UpdateUserRequest;
-
+use App\Models\Address;
 
 class UserController extends Controller
 {
@@ -106,5 +106,12 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->withSuccess(trans('admin.detelted_sucess'));
+    }
+
+    public function addresses ($id){
+        $addresses = User::find($id)->addresses;
+        return view('dashboard.users.addresses', [
+            'addresses' => $addresses
+        ]);
     }
 }

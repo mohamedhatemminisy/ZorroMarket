@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->integer('added_by')->unsigned();
             $table->foreign('added_by')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('is_active');
+            $table->boolean('featured');
 
             $table->timestamps();
         });
