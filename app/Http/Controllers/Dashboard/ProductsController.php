@@ -20,9 +20,35 @@ class ProductsController extends Controller
         $categories = Category::withTranslation()->get();
         $brands = Brand::withTranslation()->get();
         $vendors = User::role(['vendor'])->get();
+        $users = User::role(['vendor', 'admin'])->get();
         View::share('vendors', $vendors);
+        View::share('users', $users);
         View::share('categories', $categories);
         View::share('brands', $brands);
+    }
+
+    public function filter($brand_id, $category_id,  $user_id, $is_active, $featured)
+    {
+        $product = Product::orderBy('id', 'desc');
+        if ($brand_id != "0") {
+            $product = $product->where('brand_id', $brand_id);
+        }
+        if ($category_id != '0') {
+            $category = Category::find($category_id);
+
+            $product_ids = $category->products->pluck('id')->toArray();
+            $product = $product->whereIn('id', $product_ids);
+        }
+        if ($user_id !=  '0') {
+            $product = $product->where('added_by', $user_id);
+        }
+        if ($is_active !=  "null") {
+            $product = $product->where('is_active', $is_active);
+        }
+        if ($featured !=  "null") {
+            $product = $product->where('featured', $featured);
+        }
+        return  $product->paginate(PAGINATION_COUNT);
     }
 
     /**
@@ -30,11 +56,21 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
         $role =  $user->getRoleNames()[0];
-        if ($role == 'admin') {
+
+        $params = $request->all();
+        if ($request->_token) {
+            $products = $this->filter(
+                $params['brand_id'],
+                $params['category_id'],
+                $params['user_id'],
+                $params['is_active'],
+                $params['featured']
+            );
+        } elseif ($role == 'admin') {
             $products = Product::orderBy('id', 'desc')->paginate(PAGINATION_COUNT);
         } elseif ($role == 'vendor') {
             $products = Product::orderBy('id', 'desc')->where('added_by', auth()->user()->id)->paginate(PAGINATION_COUNT);
@@ -65,6 +101,10 @@ class ProductsController extends Controller
             $data['is_active'] = 0;
         else
             $data['is_active'] = 1;
+        if (!$request->has('featured'))
+            $data['featured'] = 0;
+        else
+            $data['featured'] = 1;
         // $data['slug'] =  str_replace(' ', '-', $request->slug);
         if ($request->hasFile('main_image')) {
             $data['main_image'] = upload_image($request->file('main_image'), 'main_image');
@@ -140,6 +180,10 @@ class ProductsController extends Controller
             $data['is_active'] = 0;
         else
             $data['is_active'] = 1;
+        if (!$request->has('featured'))
+            $data['featured'] = 0;
+        else
+            $data['featured'] = 1;
         if ($request->hasFile('main_image')) {
             $data['main_image'] = upload_image($request->file('main_image'), 'main_image');
         } else {

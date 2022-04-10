@@ -39,6 +39,64 @@
                             @include('dashboard.includes.alerts.success')
                             @include('dashboard.includes.alerts.errors')
                             <div class="card-content collapse show">
+                            <div class="container">
+                                <form action="{{route('product.filter')}}" method="get">
+                                    @csrf
+                                    <div class="row mb-2">
+
+                                        <div class="col-md-4">
+                                            <label>@lang('admin.added_by')</label>
+                                            <select name="user_id" class="select2 form-control" id="user_id">
+                                                <option value="0">@lang('admin.added_by')</option>
+                                                @foreach($users as $user)
+                                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>@lang('admin.brands')</label>
+                                            <select name="brand_id" class="select2 form-control" id="brand_id">
+                                                <option value="0">@lang('admin.select_brand')</option>
+                                                @foreach($brands as $brand)
+                                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>@lang('admin.categories')</label>
+                                            <select name="category_id" class="select2 form-control" id="category_id">
+                                                <option value="0">@lang('admin.select_category')</option>
+                                                @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>@lang('admin.status')</label>
+                                            <select name="is_active" class="select2 form-control">
+                                                <option value="null">@lang('admin.status')</option>
+                                                <option value="1">@lang('admin.active')</option>
+                                                <option value="0">@lang('admin.not_active')</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label>@lang('admin.type')</label>
+                                            <select name="featured" class="form-control">
+                                                <option value="null">@lang('admin.select_type')</option>
+                                                <option value="1">@lang('admin.featured')</option>
+                                                <option value="0">@lang('admin.not_featured')</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-2 mt-2">
+                                            <button type="submit" class="btn btn-success btn-sm">@lang('admin.Filtrer')</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
                                 <div class="card-body card-dashboard">
                                     <table class="table display nowrap table-striped table-bordered ">
                                         <thead class="">
@@ -70,7 +128,8 @@
                                         </tbody>
                                     </table>
                                     <div class="justify-content-center d-flex">
-                                        {{ $products->links('vendor.pagination.custom') }}
+                                        {!! $products->appends(Request::except('page'))->render('vendor.pagination.custom') !!}
+
                                     </div>
                                 </div>
                             </div>

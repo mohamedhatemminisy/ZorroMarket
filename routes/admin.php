@@ -40,8 +40,12 @@ Route::group([
 
         Route::resource('brands', 'App\Http\Controllers\Dashboard\BrandController');
         Route::resource('users', 'App\Http\Controllers\Dashboard\UserController');
+        Route::get('user/addresses/{id}', 'App\Http\Controllers\Dashboard\UserController@addresses')->name('user.addresses');
         Route::resource('banners', 'App\Http\Controllers\Dashboard\BannerController');
         Route::resource('products', 'App\Http\Controllers\Dashboard\ProductsController');
+        Route::get('product/filter', 'App\Http\Controllers\Dashboard\ProductsController@index')->name('product.filter');
+
+
 
         Route::resource('roles', 'App\Http\Controllers\Dashboard\RolesController');
         Route::resource('permissions', 'App\Http\Controllers\Dashboard\PermissionsController');

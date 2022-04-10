@@ -219,4 +219,10 @@ return [
     'video' => 'video',
     'added_by' => 'Product owner',
     'images' => 'Product images ',
+    'city' => 'city',
+    'state' => 'state',
+    'address' => 'address',
+    'zipcode' => 'zipcode',
+    'featured' => 'featured',
+    'not_featured' => 'not featured',
 ];

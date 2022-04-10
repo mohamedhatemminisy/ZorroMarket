@@ -117,6 +117,10 @@
                                         <p class="alert alert-info" style="background-color:rgb(26,60,119)">{{ $product->getActive()  }}</p>
                                     </div>
                                     <div class="col form-group">
+                                        <label>@lang('admin.featured') </label>
+                                        <p class="alert alert-info" style="background-color:rgb(26,60,119)">{{ $product->featured()  }}</p>
+                                    </div>
+                                    <div class="col form-group">
                                         <label>@lang('admin.categories') </label>
                                         @foreach($product->categories as $category)
                                         <p>{{$category->name}}</p>
