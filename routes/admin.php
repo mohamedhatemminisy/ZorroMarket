@@ -45,7 +45,8 @@ Route::group([
         Route::resource('products', 'App\Http\Controllers\Dashboard\ProductsController');
         Route::get('product/filter', 'App\Http\Controllers\Dashboard\ProductsController@index')->name('product.filter');
 
-
+        Route::get('/settings', 'App\Http\Controllers\Dashboard\SettingController@settings')->name('settings');
+        Route::put('/settings', 'App\Http\Controllers\Dashboard\SettingController@update')->name('settings.update');
 
         Route::resource('roles', 'App\Http\Controllers\Dashboard\RolesController');
         Route::resource('permissions', 'App\Http\Controllers\Dashboard\PermissionsController');

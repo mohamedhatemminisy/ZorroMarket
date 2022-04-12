@@ -134,6 +134,10 @@
             <li class=" nav-item"><a href="{{route('contact')}}"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.contact')}}</span></a>
             </li>
             @endcan
+            @can('settings')
+            <li class=" nav-item"><a href="{{route('settings')}}"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.settings')}}</span></a>
+            </li>
+            @endcan
 
         </ul>
     </div>
