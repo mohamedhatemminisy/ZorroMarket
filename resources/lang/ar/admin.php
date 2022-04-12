@@ -224,5 +224,6 @@ return [
     'zipcode' => 'رقم البريدي',
     'featured' => 'منتج مميز',
     'not_featured' => 'منتج غير مميز',
+    'settings' => 'الاعدادات',
 
 ];

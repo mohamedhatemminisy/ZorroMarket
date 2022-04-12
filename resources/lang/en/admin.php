@@ -225,4 +225,5 @@ return [
     'zipcode' => 'zipcode',
     'featured' => 'featured',
     'not_featured' => 'not featured',
+    'settings' => 'settings',
 ];
