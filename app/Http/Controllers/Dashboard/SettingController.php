@@ -11,8 +11,8 @@ class SettingController extends Controller
 {
     public function settings()
     {
-        $data = Setting::first();
-        return view('dashboard.settings.index', compact('data'));
+        $setting = Setting::first();
+        return view('dashboard.settings.index', compact('setting'));
     }
         /**
      * Update the specified resource in storage.
