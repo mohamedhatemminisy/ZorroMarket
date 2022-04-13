@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
@@ -19,12 +20,14 @@ class ProductsController extends Controller
     {
         $categories = Category::withTranslation()->get();
         $brands = Brand::withTranslation()->get();
+        $countries = Country::withTranslation()->get();
         $vendors = User::role(['vendor'])->get();
         $users = User::role(['vendor', 'admin'])->get();
         View::share('vendors', $vendors);
         View::share('users', $users);
         View::share('categories', $categories);
         View::share('brands', $brands);
+        View::share('countries', $countries);
     }
 
     public function filter($brand_id, $category_id,  $user_id, $is_active, $featured)

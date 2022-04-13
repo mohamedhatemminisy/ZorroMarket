@@ -95,10 +95,26 @@
                 </ul>
             </li>
             @endcan
+            @canany(['countries.create', 'countries.index'])
+            <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.countries')}}</span></a>
+                <ul class="menu-content">
+                    @can('countries.index')
+                    <li><a class="menu-item" href="{{route('countries.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                            {{trans('admin.create_country')}}</a>
+                    </li>
+                    @endcan
+                    @can('countries.index')
+                    <li><a class="menu-item" href="{{route('countries.index')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
+                            {{trans('admin.show_countries')}}</a>
+                    </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
             @canany(['products.create', 'products.index'])
             <li class=" nav-item"><a href="#"><i class="la la-arrows-h"></i><span class="menu-title" data-i18n="nav.horz_nav.main">{{trans('admin.products')}}</span></a>
                 <ul class="menu-content">
-                @can('products.create')
+                    @can('products.create')
                     <li><a class="menu-item" href="{{route('products.create')}}" data-i18n="nav.horz_nav.horizontal_navigation_types.main">
                             {{trans('admin.create_product')}}</a>
                     </li>

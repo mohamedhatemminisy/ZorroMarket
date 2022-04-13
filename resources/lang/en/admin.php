@@ -109,6 +109,7 @@ return [
         'meta_description_required_en' => 'meta description required in english',
         'meta_keywords_required_en' => 'meta keywords required in english',
         'address_required_en' => 'address required in english',
+        'country_id_required' => 'Country required',
     ],
 
 
@@ -250,4 +251,6 @@ return [
     'instagram' => 'instagram',
     'email' => 'email',
     'whatsapp' => 'whatsapp',
+    'select_country' => 'Select country',
+    'made_country' => 'made in',
 ];

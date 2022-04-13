@@ -155,6 +155,23 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="country_id"> @lang('admin.select_country')
+                                                            </label>
+                                                            <select name="country_id" class="select2 form-control">
+                                                                <option disabled selected> @lang('admin.select_country')</option>
+                                                                @if($countries && $countries -> count() > 0)
+                                                                @foreach($countries as $country)
+                                                                <option value="{{$country -> id }}" @if($product->country_id == $country->id) selected @endif>{{$country -> name}}</option>
+                                                                @endforeach
+                                                                @endif
+                                                            </select>
+                                                            @error('country_id')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
                                                     @if(auth()->user()->hasRole('admin'))
                                                     <div class="col-md-4">
                                                         <div class="form-group">

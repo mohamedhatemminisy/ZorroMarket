@@ -11,8 +11,8 @@ class Product extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
     protected $fillable = [
-        'is_active','featured', 'slug', 'sku', 'price', 'main_image', 'video', 'quantity',
-        'special_price', 'start_date', 'end_date', 'added_by', 'brand_id'
+        'is_active', 'featured', 'slug', 'sku', 'price', 'main_image', 'video', 'quantity',
+        'special_price', 'start_date', 'end_date', 'added_by', 'brand_id', 'country_id'
     ];
     protected $translatedAttributes = ['name', 'summary', 'description'];
     protected $hidden = ['translations'];
@@ -36,18 +36,26 @@ class Product extends Model implements TranslatableContract
         return  $this->featured  == 0 ?  trans('admin.not_featured')   : trans('admin.featured');
     }
 
-    public function brand(){
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
-    public function user(){
-        return $this->belongsTo(User::class,'added_by');
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
- 
-    public function categories () {
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'added_by');
+    }
+
+    public function categories()
+    {
         return $this->belongsToMany(Category::class, 'product_categories', 'product_id', 'category_id');
     }
 
-    public function image(){
+    public function image()
+    {
         return $this->hasMany(ProductImage::class);
     }
 }

@@ -39,6 +39,7 @@ Route::group([
         Route::resource('categories', 'App\Http\Controllers\Dashboard\CategoryController');
 
         Route::resource('brands', 'App\Http\Controllers\Dashboard\BrandController');
+        Route::resource('countries', 'App\Http\Controllers\Dashboard\CountryController');
         Route::resource('users', 'App\Http\Controllers\Dashboard\UserController');
         Route::get('user/addresses/{id}', 'App\Http\Controllers\Dashboard\UserController@addresses')->name('user.addresses');
         Route::resource('banners', 'App\Http\Controllers\Dashboard\BannerController');
