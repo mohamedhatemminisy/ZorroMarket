@@ -108,6 +108,7 @@ return [
         'meta_description_required_en' => 'وصف الميتا  مطلوب باللغة الانجليزية',
         'meta_keywords_required_en' => 'الكلمات المفتاحية  مطلوبة باللغة الانجليزية',
         'address_required_en' => 'العنوان  مطلوبة باللغة الانجليزية',
+        'country_id_required' => 'قم باختيار الدولة',
     ],
 
 
@@ -250,4 +251,6 @@ return [
     'instagram' => 'انستجرام',
     'email' => 'البريد الالكتروني',
     'whatsapp' => 'الواتساب',
+    'select_country' => 'اختر الدولة',
+    'made_country' => 'بلد المنشا',
 ];
