@@ -15,6 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('shipping_pice')->nullable();
+            $table->string('sub_total')->nullable();
             $table->string('total')->nullable();
             $table->enum('status', ['pending','shipping','delivered']);
             $table->text('note')->nullable();
